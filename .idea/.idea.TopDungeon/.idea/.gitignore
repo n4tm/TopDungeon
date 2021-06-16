@@ -2,10 +2,10 @@
 /shelf/
 /workspace.xml
 # Rider ignored files
-/projectSettingsUpdater.xml
-/contentModel.xml
 /modules.xml
-/.idea.TopDungeon.iml
+/contentModel.xml
+/.idea.TopDungeon2.0.iml
+/projectSettingsUpdater.xml
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml

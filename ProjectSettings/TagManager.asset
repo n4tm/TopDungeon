@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MeleeWeapon
   layers:
   - Default
   - TransparentFX
@@ -11,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Blocking
-  - Actor
+  - Creature
+  - AboveCreature
   - 
   - 
   - 
@@ -41,12 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Floor
-    uniqueID: 709714893
+  - name: Creature
+    uniqueID: 1271677195
     locked: 0
-  - name: Actor
-    uniqueID: 3015909717
-    locked: 0
-  - name: Design
-    uniqueID: 661966169
+  - name: AboveCreature
+    uniqueID: 809037921
     locked: 0
