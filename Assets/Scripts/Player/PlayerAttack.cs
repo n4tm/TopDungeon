@@ -1,17 +1,21 @@
 using System.Collections;
+
 using UnityEngine;
 
 namespace Player
 {
     
     public class PlayerAttack : MonoBehaviour
-    {
+    {        
+        
         public bool isAttacking;
         private bool canAttack;
-        
         private Animator swordAnimator;
-        private static readonly int Attack_trigger = Animator.StringToHash("Attack");
+        private PlayerLife playerlife;
+        private static readonly int AttackTrigger = Animator.StringToHash("Attack");
+        
 
+        #region Animacao
         public void StartAttack()
         {
             isAttacking = true;
@@ -24,23 +28,28 @@ namespace Player
 
         private void Start()
         {
+            playerlife = GetComponentInParent<PlayerLife>();
             canAttack = true;
-            swordAnimator = gameObject.transform.GetChild(0).GetComponent<Animator>();
+            swordAnimator = GetComponentInChildren<Animator>();
         }
 
         private void Attack()
         {
-            if (canAttack) swordAnimator.SetTrigger(Attack_trigger);
-            StartCoroutine(AttackDelay(2.0f));
+            if (canAttack)
+            {
+                swordAnimator.SetTrigger(AttackTrigger);
+                StartCoroutine(AttackDelay(0.2f));
+            }
+
         }
-        
+      
         
         private void Update()
         {
         
             if (Input.GetButtonDown("Fire1"))
             {
-                swordAnimator.SetTrigger(Attack_trigger);
+                Attack();
             }
         }
 
@@ -50,6 +59,6 @@ namespace Player
             yield return new WaitForSeconds(timeWaiting);
             canAttack = true;
         }
-        
+        #endregion
     }
 }

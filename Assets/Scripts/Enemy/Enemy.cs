@@ -1,3 +1,5 @@
+
+using LifeSystem;
 using UnityEngine;
 
 namespace Enemy
@@ -6,17 +8,12 @@ namespace Enemy
     {
         [SerializeField] private Player.PlayerAttack player;
         private BoxCollider2D BoxCol;
+        public bool gotHit;
+        public EnemyLife life;
         private void Start()
         {
+            life = GetComponent<EnemyLife>();
             BoxCol = GetComponent<BoxCollider2D>();
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            if (other.CompareTag("MeleeWeapon") && player.isAttacking)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 }
